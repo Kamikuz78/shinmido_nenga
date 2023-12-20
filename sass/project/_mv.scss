@@ -1,0 +1,8 @@
+@use "../foundation" as *;
+
+.mv__main-title {
+  font-size: prem(40);
+  @include mq(md) {
+    font-size: prem(144);
+  }
+}
