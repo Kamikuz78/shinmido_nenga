@@ -1,8 +1,47 @@
 @use "../foundation" as *;
 
+.mv {
+  position: relative;
+  height: 100vh;
+  min-height: prem(400);
+}
+
+.mv__inner {
+  height: inherit;
+  min-height: inherit;
+}
+
+.mv__title-wrap {
+  position: absolute;
+  z-index: 2;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  color: #333333;
+  text-align: left;
+  letter-spacing: 0px;
+  line-height: 1.21;
+  @include mq(md) {
+    // left: calc(50% - min(50vw, #{prem(650)}));
+    // transform: translateY(-50%);
+    width: initial;
+  }
+}
+
 .mv__main-title {
   font-size: prem(40);
+  font-family: Tahoma, sans-serif;
   @include mq(md) {
     font-size: prem(144);
+  }
+}
+
+.mv__sub-title {
+  margin-top: prem(20);
+  font-size: prem(25);
+  font: normal normal normal Hiragino Sans;
+  @include mq(md) {
+    font-size: prem(30);
   }
 }
