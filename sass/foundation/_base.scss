@@ -1,0 +1,67 @@
+@use 'variables' as *;
+@use 'mixin' as *;
+@use 'functions' as *;
+
+html {
+  @if $break-flg == 0 {
+    // 375px以下
+    @media (max-width: 375px) {
+      font-size: vw(375, strip-unit($base-font-size));
+    }
+
+    // 375px〜767px
+    font-size: $base-font-size;
+
+    // 768px〜inner
+    @include mq("md") {
+      font-size: vw(strip-unit($inner), strip-unit($base-font-size));
+    }
+
+    //inner以上
+    @media (min-width: $inner) {
+      font-size: $base-font-size;
+    }
+  }@else{
+    //inner以上
+    font-size: $base-font-size;
+
+    // 768px〜inner
+    @media (max-width: $inner) {
+      font-size: vw(strip-unit($inner), strip-unit($base-font-size));
+    }
+
+    // 375px〜767px
+    @include mq("md") {
+    font-size: $base-font-size;
+    }
+
+    // 375px以下
+    @media (max-width: 375px) {
+      font-size: vw(375, strip-unit($base-font-size));
+    }
+  }
+}
+
+body {
+  font-family: $font-family-base;
+  font-weight: $regular;
+  color: $color-black;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s;
+}
+a:hover {
+  @if $break-flg ==0 {
+    @include mq("md") {
+      opacity: 0.8;
+    }
+  }@else {
+    opacity: 0.8;
+    @include mq("md") {
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+@use "sass:math";
+
+// ブレイクポイントの設定
+// ＊＊＊＊＊SP・PCファーストについて、この設定を変更します＊＊＊＊＊
+$break-flg: 0 !default; //0:SPファースト、1：PCファースト
+
+$breakpoints: null;
+@if $break-flg == 0 {
+  $breakpoints: (
+    "sm": "screen and (min-width: 400px)",
+    "md": "screen and (min-width: 768px)",
+    "lg": "screen and (min-width: 1000px)",
+    "xl": "screen and (min-width: 1200px)",
+  );
+} @else {
+  // ブレイクポイントの設定
+  $breakpoints: (
+    "sm": "screen and (max-width: 399px)",
+    "md": "screen and (max-width: 767px)",
+    "lg": "screen and (max-width: 999px)",
+    "xl": "screen and (max-width: 1199px)",
+  );
+}
+
+// inner
+$inner: 1200px;
+
+// 余白
+$padding-pc: 25px; // PC用余白設定
+$padding-sp: 20px; // スマホ用余白設定
+
+// フォント
+$font-family-base: 'Noto Sans JP', sans-serif; // ベースフォント設定
+
+$regular: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+$extra-bold: 800;
+
+// ベースフォントサイズ
+$base-font-size: 16px;
+
+// Color
+$color-black:#333;
+$color-red:#e00;

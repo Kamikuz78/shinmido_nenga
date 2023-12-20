@@ -1,0 +1,8 @@
+@use "sass:math";
+@use 'variables' as *;
+
+@mixin mq($breakpoint) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+      @content;
+  }
+}
